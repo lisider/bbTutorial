@@ -1,0 +1,25 @@
+#!/bin/bash 
+CURRENT_PATH=`pwd`
+
+if [ -e ./bitbake/setup.py ];then :;else
+	if [ -e ./bitbake/bitbake-1.27.0.tar.gz ];then
+		tar xvf ./bitbake/bitbake-1.27.0.tar.gz 
+	fi
+fi
+
+BITBAKE_ROOT=${CURRENT_PATH}/bitbake/
+echo ${BITBAKE_ROOT}
+
+export PATH=${BITBAKE_ROOT}/bin:$PATH
+export PYTHONPATH=$BITBAKE_ROOT/lib:$PYTHONPATH
+
+if [ -e build ];then :;else
+	cp meta/base/myconf build -r
+fi
+
+export BBPATH=${CURRENT_PATH}/build
+
+cd build
+
+echo "U can input bitbake world"
+

@@ -138,3 +138,22 @@ first_0.1.bbappend 写了 这个任务 中的几个过程或者全部过程
 first_0.1.bb 写了 这个任务 中的几个过程或者全部过程
 first_0.1.inc 写了 这个任务 中的几个过程或者全部过程 ,被 first_0.1.bb include
 ```
+
+
+## 另外
+
+```c
+如果你修改了 meta/base/myconf/conf/bblayers.conf 里面的内容
+
+则需要 删掉 build 目录,重新
+
+. env-init 
+
+
+例如 ,修改了 BBLAYERS 变量,然后 . env-init ,
+发现 build/conf/bblayers.conf 里面的内容是不变的
+只需要 删掉 build 目录 ,重新 .env-init
+
+
+
+```
